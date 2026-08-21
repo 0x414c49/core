@@ -1,0 +1,170 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "description": "Sign in with your Zaptec account (the same credentials as the Zaptec Portal).",
+        "data": {
+          "username": "Email",
+          "password": "Password"
+        },
+        "data_description": {
+          "username": "The email address for your Zaptec account.",
+          "password": "The password for your Zaptec account."
+        }
+      },
+      "installation": {
+        "description": "Choose which installations to add.",
+        "data": {
+          "installations": "Installations"
+        },
+        "data_description": {
+          "installations": "Select the Zaptec installations to add to Home Assistant."
+        }
+      },
+      "reauth_confirm": {
+        "description": "Enter your Zaptec password again.",
+        "data": {
+          "password": "Password"
+        },
+        "data_description": {
+          "password": "The password for your Zaptec account."
+        }
+      },
+      "reconfigure": {
+        "description": "Enter your Zaptec password.",
+        "data": {
+          "password": "Password"
+        },
+        "data_description": {
+          "password": "The password for your Zaptec account."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "invalid_auth": "Invalid authentication",
+      "unknown": "Unexpected error",
+      "no_installations": "No installations found for this account",
+      "no_installations_selected": "Select at least one installation"
+    },
+    "abort": {
+      "already_configured": "This account is already configured",
+      "no_installations": "No installations found for this account",
+      "reconfigure_successful": "Zaptec has been reconfigured"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "installations": "Installations"
+        },
+        "data_description": {
+          "installations": "Select the Zaptec installations to add to Home Assistant."
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect",
+      "no_installations": "No installations found for this account",
+      "no_installations_selected": "Select at least one installation"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "charger_mode": {
+        "name": "Charger mode",
+        "state": {
+          "disconnected": "Disconnected",
+          "connected_requesting": "Waiting",
+          "connected_charging": "Charging",
+          "connected_finished": "Charge done"
+        }
+      },
+      "total_charge_power": { "name": "Total charge power" },
+      "voltage_phase1": { "name": "Voltage phase 1" },
+      "voltage_phase2": { "name": "Voltage phase 2" },
+      "voltage_phase3": { "name": "Voltage phase 3" },
+      "current_phase1": { "name": "Current phase 1" },
+      "current_phase2": { "name": "Current phase 2" },
+      "current_phase3": { "name": "Current phase 3" },
+      "charge_current_set": { "name": "Charge current" },
+      "session_energy": { "name": "Session energy" },
+      "lifetime_energy": { "name": "Lifetime energy" },
+      "charge_duration": { "name": "Charge duration" },
+      "temperature_internal": { "name": "Internal temperature" },
+      "humidity": { "name": "Humidity" },
+      "tamper_cover": { "name": "Tamper" },
+      "max_charge_current": { "name": "Max charge current" },
+      "min_charge_current": { "name": "Min charge current" },
+      "available_current": { "name": "Available current" },
+      "available_current_phase1": { "name": "Available current phase 1" },
+      "available_current_phase2": { "name": "Available current phase 2" },
+      "available_current_phase3": { "name": "Available current phase 3" },
+      "max_current": { "name": "Max current" },
+      "active_charger_count": { "name": "Active chargers" },
+      "active_power": { "name": "Active power" },
+      "energy_import_total": { "name": "Energy imported" },
+      "energy_export_total": { "name": "Energy exported" }
+    },
+    "binary_sensor": {
+      "charging": { "name": "Charging" },
+      "car_connected": { "name": "Car connected" },
+      "online": { "name": "Online" },
+      "problem": { "name": "Problem" },
+      "authorization_required": { "name": "Authorization required" },
+      "ocpp_connected": { "name": "OCPP connected" },
+      "active": { "name": "Active" }
+    },
+    "switch": {
+      "charging": { "name": "Charging" },
+      "permanent_cable_lock": { "name": "Permanent cable lock" }
+    },
+    "number": {
+      "available_current": { "name": "Available current" },
+      "available_current_phase1": { "name": "Available current phase 1" },
+      "available_current_phase2": { "name": "Available current phase 2" },
+      "available_current_phase3": { "name": "Available current phase 3" },
+      "three_to_one_phase_switch_current": {
+        "name": "3 to 1-phase switch current"
+      },
+      "max_charge_current": { "name": "Max charge current" },
+      "min_charge_current": { "name": "Min charge current" }
+    },
+    "button": {
+      "resume_charging": { "name": "Resume charging" },
+      "stop_charging": { "name": "Stop charging" },
+      "deauthorize_and_stop": { "name": "Deauthorize and stop" },
+      "restart_charger": { "name": "Restart charger" }
+    },
+    "update": {
+      "firmware": { "name": "Firmware" }
+    }
+  },
+  "exceptions": {
+    "charger_data_unavailable": {
+      "message": "Charger data is unavailable."
+    },
+    "resume_schedule_pending": {
+      "message": "Charging cannot be resumed while a schedule event is pending."
+    },
+    "resume_not_paused": {
+      "message": "Charging can only be resumed after it has been stopped from Home Assistant."
+    },
+    "stop_no_vehicle": {
+      "message": "Charging cannot be stopped because no vehicle is connected."
+    },
+    "insufficient_role": {
+      "message": "This action requires Owner or Service access for {object_name} in the Zaptec Portal. Current role: {role}."
+    },
+    "action_failed": {
+      "message": "Failed to {action}: {error}"
+    }
+  },
+  "issues": {
+    "charger_warning": {
+      "title": "Zaptec charger {charger_name} reports a warning",
+      "description": "Zaptec charger {charger_name} is reporting an active warning: {warning_details}. Check the Zaptec app and the charger. If the warning does not clear, contact your installer."
+    }
+  }
+}

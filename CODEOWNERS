@@ -2131,6 +2131,8 @@ CLAUDE.md @home-assistant/core
 /homeassistant/components/zabbix/ @kruton
 /homeassistant/components/zamg/ @killer0071234
 /tests/components/zamg/ @killer0071234
+/homeassistant/components/zaptec/ @0x414c49
+/tests/components/zaptec/ @0x414c49
 /homeassistant/components/zengge/ @emontnemery
 /homeassistant/components/zeroconf/ @bdraco
 /tests/components/zeroconf/ @bdraco

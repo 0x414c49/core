@@ -1,0 +1,25 @@
+{
+  "entity": {
+    "button": {
+      "restart_charger": {
+        "default": "mdi:restart"
+      },
+      "resume_charging": {
+        "default": "mdi:play"
+      },
+      "stop_charging": {
+        "default": "mdi:stop"
+      }
+    },
+    "sensor": {
+      "active_charger_count": {
+        "default": "mdi:ev-station"
+      }
+    },
+    "switch": {
+      "charging": {
+        "default": "mdi:ev-station"
+      }
+    }
+  }
+}

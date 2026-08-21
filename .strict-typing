@@ -659,6 +659,7 @@ homeassistant.components.yalexs_ble.*
 homeassistant.components.yoto.*
 homeassistant.components.youtube.*
 homeassistant.components.zeroconf.*
+homeassistant.components.zaptec.*
 homeassistant.components.zinvolt.*
 homeassistant.components.zodiac.*
 homeassistant.components.zone.*

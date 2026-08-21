@@ -1,0 +1,128 @@
+"""Constants for the Zaptec integration."""
+
+import logging
+
+DOMAIN = "zaptec"
+LOGGER = logging.getLogger(__package__)
+
+API_URL = "https://api.zaptec.com/api/"
+TOKEN_URL = "https://api.zaptec.com/oauth/token"
+TOKEN_URL_LEGACY = "https://api.zaptec.com/oauth/token2"
+
+CONF_INSTALLATIONS = "installations"
+
+# Charger operation modes (observation 710 / ChargerOperatingMode enum).
+# Note: there is no value 4.
+OPERATION_MODE_DISCONNECTED = 1
+OPERATION_MODE_REQUESTING = 2
+OPERATION_MODE_CHARGING = 3
+OPERATION_MODE_FINISHED = 5
+
+MODE_CONNECTED = {
+    OPERATION_MODE_REQUESTING,
+    OPERATION_MODE_CHARGING,
+    OPERATION_MODE_FINISHED,
+}
+
+# Observation ids (from GET /api/constants -> Observations).
+OBS_IS_ONLINE = -2
+OBS_IS_OCPP_CONNECTED = -3
+OBS_OFFLINE_MODE = 1
+OBS_AUTHENTICATION_REQUIRED = 120
+OBS_PERMANENT_CABLE_LOCK = 151
+OBS_HMI_BRIGHTNESS = 153
+OBS_LOCK_CABLE_WHEN_CONNECTED = 154
+OBS_TEMPERATURE_INTERNAL5 = 201
+OBS_HUMIDITY = 270
+OBS_TAMPER_COVER = 280
+OBS_VOLTAGE_PHASE1 = 501
+OBS_VOLTAGE_PHASE2 = 502
+OBS_VOLTAGE_PHASE3 = 503
+OBS_CURRENT_PHASE1 = 507
+OBS_CURRENT_PHASE2 = 508
+OBS_CURRENT_PHASE3 = 509
+OBS_CHARGER_MAX_CURRENT = 510
+OBS_CHARGER_MIN_CURRENT = 511
+OBS_ACTIVE_PHASES = 512
+OBS_TOTAL_CHARGE_POWER = 513
+OBS_POWER_FACTOR = 518
+OBS_OFFLINE_CURRENT = 523
+OBS_TOTAL_CHARGE_POWER_SESSION = 553
+OBS_SIGNED_METER_VALUE = 554
+OBS_CHARGE_DURATION = 701
+OBS_CHARGE_CURRENT_SET = 708
+OBS_CHARGER_OPERATION_MODE = 710
+OBS_IS_ENABLED = 711
+OBS_FINAL_STOP_ACTIVE = 718
+OBS_NEXT_SCHEDULE_EVENT = 763
+OBS_WARNINGS = 804
+OBS_COMMUNICATION_SIGNAL_STRENGTH = 809
+# APM (grid meter reader) observations
+OBS_APM_ENERGY_IMPORT_TOTAL = 1020
+OBS_APM_ENERGY_EXPORT_TOTAL = 1021
+OBS_APM_ACTIVE_POWER = 1161
+
+# Charger commands (POST /api/chargers/{id}/sendCommand/{commandId}).
+CMD_RESTART_CHARGER = 102
+CMD_UPGRADE_FIRMWARE = 200
+CMD_STOP_CHARGING_FINAL = 506
+CMD_RESUME_CHARGING = 507
+CMD_DEAUTHORIZE_AND_STOP = 10001
+
+# Device types (DeviceType enum).
+DEVICE_TYPE_UNKNOWN = 0
+DEVICE_TYPE_SMART = 1
+DEVICE_TYPE_PORTABLE = 2
+DEVICE_TYPE_HOME_APM = 3
+DEVICE_TYPE_APOLLO = 4
+DEVICE_TYPE_OTHER_APM = 5
+DEVICE_TYPE_GENERIC_APM = 6
+DEVICE_TYPE_HAN_APM = 7
+DEVICE_TYPE_TIC_APM = 8
+APM_DEVICE_TYPES = {
+    DEVICE_TYPE_HOME_APM,
+    DEVICE_TYPE_OTHER_APM,
+    DEVICE_TYPE_GENERIC_APM,
+    DEVICE_TYPE_HAN_APM,
+    DEVICE_TYPE_TIC_APM,
+}
+
+DEVICE_TYPE_NAMES = {
+    DEVICE_TYPE_UNKNOWN: "Unknown",
+    DEVICE_TYPE_SMART: "Smart",
+    DEVICE_TYPE_PORTABLE: "Portable",
+    DEVICE_TYPE_HOME_APM: "Sense",
+    DEVICE_TYPE_APOLLO: "Apollo",
+    DEVICE_TYPE_OTHER_APM: "Energy meter",
+    DEVICE_TYPE_GENERIC_APM: "Energy meter",
+    DEVICE_TYPE_HAN_APM: "Energy meter",
+    DEVICE_TYPE_TIC_APM: "Energy meter",
+}
+
+# Model from the first three serial characters (community-proven mapping).
+SERIAL_MODEL_PREFIXES = {
+    "ZCS": "Zaptec Pro",
+    "ZPR": "Zaptec Pro",
+    "ZCH": "Zaptec Pro",
+    "ZPG": "Zaptec Pro",
+    "ZAP": "Zaptec Go",
+    "ZGB": "Zaptec Go",
+    "ZAG": "Zaptec Go",
+    "GPN": "Zaptec Go 2",
+    "GPG": "Zaptec Go 2",
+    "APH": "Zaptec Sense",
+    "APG": "Zaptec Sense",
+    "APM": "Zaptec Sense",
+}
+
+MANUFACTURER = "Zaptec"
+
+DEFAULT_POLL_INTERVAL = 60  # idle
+CHARGING_POLL_INTERVAL = 30  # any charger actively charging
+FIRMWARE_POLL_INTERVAL = 6 * 60 * 60
+
+# Electrical limits (IEC 61851 typical values)
+MIN_CURRENT = 0.0
+MAX_CURRENT = 32.0
+
+ATTRIBUTION = "Data provided by Zaptec Cloud API"

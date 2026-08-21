@@ -902,6 +902,7 @@ FLOWS = {
         "youless",
         "youtube",
         "zamg",
+        "zaptec",
         "zerproc",
         "zeversolar",
         "zha",
